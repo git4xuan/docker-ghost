@@ -1,4 +1,4 @@
-shell pregit.sh
-shell install.sh
-shell git.sh
+sh pregit.sh
+sh install.sh
+sh git.sh
 
