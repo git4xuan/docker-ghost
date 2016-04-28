@@ -11,4 +11,6 @@ chown 1000:1000 /var/lib/ghost
 cd ..
 cp -rf content/* /var/lib/ghost/
 
-docker run --name ghost --env-file /etc/default/ghost -p 80:2368 -v /var/lib/ghost:/var/lib/ghost -d ptimof/ghost npm start --production
+#docker run --name ghost --env-file /etc/default/ghost -p 80:2368 -v /var/lib/ghost:/var/lib/ghost -d ptimof/ghost npm start --production
+docker create --name nginxghost -h blog.fengidea.com -e GHOST_PROTOCOL="https" --env-file /etc/default/ghost -p 127.0.0.1:2368:2368 -v /var/lib/ghost:/var/lib/ghost  ptimof/ghost npm start  --production
+docker start nginxhost
